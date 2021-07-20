@@ -1,25 +1,20 @@
 import svgRoute from '../../svg/route.svg'
 
 /**
- * storelocatorjs info window template
- * @module storelocatorjs/templateInfoIndow
+ * storelocatorjs sidebar item result template
+ * @module storelocatorjs/templateSidebarItemResult
  */
 export default function ({store, origin}) {
 	return `
-		<div class="storelocator-infoWindow">
-			${store.picture
-				? `<span class="storelocator-pictureStore">
-					<img src="${store.picture}" alt="${store.title}" />
-				</span>`
-			: ``}
+		<li class="storelocator-sidebarResultsListItem" data-category="${store.category}">
 			<div class="storelocator-detailStore">
 				${store.title
-					? `<span class="storelocator-detailStoreTitle">${store.index + 1}. ${store.title}</span>`
+					? `<span class="storelocator-detailStoreTitle"><a href="" title="See on the map" class="store-center-marker-js" data-marker-index="${store.index}">${store.index + 1}. <span>${store.title}</span></a></span>`
 				: ``}
-				<a href="http://www.google.fr/maps/dir/${origin}/${store.lat},${store.lng}" title="Abrir no Google Maps" target="_blank" class="storelocator-detailStoreDistance">
+				<a href="http://www.google.fr/maps/dir/${origin}/${store.lat},${store.lng}" title="See the itinerary on Google Maps" target="_blank" class="storelocator-detailStoreDistance">
 					<span>${store.distance}km</span>
 					${svgRoute}
-					</a>
+				</a>
 				${store.address
 					? `<span class="storelocator-detailStoreAddress">${store.address}</span>`
 				: ``}
@@ -30,14 +25,11 @@ export default function ({store, origin}) {
 					? `<span class="storelocator-detailStoreCity">${store.city}</span>`
 				: ``}
 				${store.phone
-					? `<span class="storelocator-detailStorePhone"><a href="tel:${store.phone}" title="Ligar">${store.phone}</a></span>`
+					? `<span class="storelocator-detailStorePhone"><i class="fas fa-phone"></i> <a href="tel:${store.phone}" title="Call">${store.phone}</a></span>`
 				: ``}
 				${store.email
-					? `<span class="storelocator-detailStoreEmail"><a href="tel:${store.email}" title="Email">${store.email}</a></span>`
+					? `<span class="storelocator-detailStoreEmail"><i class="fas fa-at"></i> ${store.email}</span>`
 				: ``}
-				${typeof store.link !== 'undefined'
-				? `<span class="storelocator-detailStoreSite"><i class="fa fa-link"></i> <a href="${store.link}" title="Site" target="_blank" class="storelocator-detailStoreUrl">${store.link}</a></span>`
-				: ``}
-			</div>
-		</div>`
+		  </div>
+		</li>`
 }
