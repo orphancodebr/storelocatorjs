@@ -16,8 +16,8 @@ export default function ({store, origin}) {
 				${store.title
 					? `<span class="storelocator-detailStoreTitle">${store.index + 1}. ${store.title}</span>`
 				: ``}
-				<a href="http://www.google.fr/maps/dir/${origin}/${store.lat},${store.lng}" title="See the itinerary on Google Maps" target="_blank" class="storelocator-detailStoreDistance">
-					<span>${store.distance.toFixed(2)}km</span>
+				<a href="http://www.google.fr/maps/dir/${origin}/${store.lat},${store.lng}" title="Abrir no Google Maps" target="_blank" class="storelocator-detailStoreDistance">
+					<span>${store.distance}km</span>
 					${svgRoute}
 					</a>
 				${store.address
@@ -30,10 +30,13 @@ export default function ({store, origin}) {
 					? `<span class="storelocator-detailStoreCity">${store.city}</span>`
 				: ``}
 				${store.phone
-					? `<span class="storelocator-detailStorePhone"><a href="tel:${store.phone}" title="Call">${store.phone}</a></span>`
+					? `<span class="storelocator-detailStorePhone"><a href="tel:${store.phone}" title="Ligar">${store.phone}</a></span>`
+				: ``}
+				${store.email
+					? `<span class="storelocator-detailStoreEmail"><a href="tel:${store.email}" title="Email">${store.email}</a></span>`
 				: ``}
 				${typeof store.link !== 'undefined'
-				? `<a href="${store.link}" title="Visit website" target="_blank" class="storelocator-detailStoreUrl">${store.link}</a>`
+				? `<span class="storelocator-detailStoreSite"><i class="fa fa-link"></i> <a href="${store.link}" title="Site" target="_blank" class="storelocator-detailStoreUrl">${store.link}</a></span>`
 				: ``}
 			</div>
 		</div>`
