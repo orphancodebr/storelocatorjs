@@ -18,7 +18,7 @@
 	],
 	"homepage": "https://yoriiis.github.io/storelocatorjs",
 	"bugs": "https://github.com/yoriiis/storelocatorjs/issues",
-	"repository": "https://github.com/yoriiis/storelocatorjs.git",
+	"repository": "https://github.com/orphancodebr/storelocatorjs.git",
 	"author": "Yoriiis aka Joris Daniel (joris.daniel@gmail.com)",
 	"main": "dist/storelocator/js/storelocator.js",
 	"scripts": {
